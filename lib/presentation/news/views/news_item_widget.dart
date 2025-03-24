@@ -19,11 +19,14 @@ class NewsItemWidget extends StatelessWidget {
   }
 
   _image() {
-    return NetworkImageWidget(
-      imageUrl: newsDataModel?.urlToImage,
-      width: Get.width,
-      height: height_180,
-      radius: radius_12,
+    return Hero(
+tag: newsDataModel?.title??"",
+      child: NetworkImageWidget(
+        imageUrl: newsDataModel?.urlToImage,
+        width: Get.width,
+        height: height_180,
+        radius: radius_12,
+      ),
     );
   }
 

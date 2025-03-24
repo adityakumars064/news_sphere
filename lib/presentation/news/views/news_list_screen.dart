@@ -20,7 +20,9 @@ class NewsListScreen extends GetView<NewsListController>{
              itemBuilder: (context, index) {
              return InkWell(
                onTap: () {
-                 Get.toNamed(AppRoutes.newsDetailScreen);
+                 Get.toNamed(AppRoutes.newsDetailScreen,arguments: {
+                   keyModel:controller.newsList[index]
+                 });
                },
                  child: NewsItemWidget(newsDataModel: controller.newsList[index]));
            }, separatorBuilder: (BuildContext context, int index) {
