@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_sphere/constants/app_colors.dart';
 import 'package:news_sphere/constants/dimens.dart';
 
 class AppTheme {
@@ -9,7 +10,7 @@ class AppTheme {
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
-      backgroundColor: primaryColor,
+      backgroundColor: Colors.blue,
       foregroundColor: Colors.white,
       elevation: 0,
     ),
@@ -46,7 +47,7 @@ class AppTheme {
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(
-      backgroundColor: primaryColor,
+      backgroundColor: Colors.white,
       foregroundColor: Colors.white,
       elevation: 0,
     ),

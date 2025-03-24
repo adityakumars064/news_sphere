@@ -3,8 +3,9 @@
 import 'package:news_sphere/constants/export.dart';
 
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await APIRepository();
 
   runApp(const MyApp());
 }
