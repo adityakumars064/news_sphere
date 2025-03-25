@@ -8,7 +8,7 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.white,secondaryHeaderColor: Colors.black,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.blue,
       foregroundColor: Colors.white,
@@ -45,7 +45,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.black,secondaryHeaderColor: Colors.black,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.white,

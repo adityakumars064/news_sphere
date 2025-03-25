@@ -23,6 +23,8 @@ class AppStrings{
   static const String latestNews = 'Latest News';
   static const String source = 'Source';
   static const String details = 'Details';
+  static const String english = 'English';
+  static const String arabic = 'Arabic';
 
 
 }

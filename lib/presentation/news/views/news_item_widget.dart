@@ -1,4 +1,5 @@
-import 'package:intl/intl.dart';
+
+
 import 'package:news_sphere/constants/export.dart';
 
 class NewsItemWidget extends StatelessWidget {
@@ -12,7 +13,7 @@ class NewsItemWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _image(),
-        _sourceText(),
+        _sourceAndDateText(),
         _titleText(),
         _descriptionText(),
       ],
@@ -31,21 +32,26 @@ tag: newsDataModel?.title??"",
     );
   }
 
-  _sourceText() {
+  _sourceAndDateText() {
     return Row(
       children: [
-        Text(
-          "${AppStrings.source.tr}: ${newsDataModel?.source?.name ?? ""}",
-          style: TextStyles.poppins10w500()?.copyWith(fontWeight: FontWeight.w600),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ).marginOnly(top: margin_10),
-        // Text(
-        //   DateFormat("yyyy-MM-dd hh:mm:ss a").parse(newsDataModel?.publishedAt??DateTime.now().toString()).toString(),
-        //   style: TextStyles.poppins10w500()?.copyWith(fontWeight: FontWeight.w600),
-        //   maxLines: 1,
-        //   overflow: TextOverflow.ellipsis,
-        // ).marginOnly(top: margin_10),
+        Expanded(
+          child: Text(
+            "${AppStrings.source.tr}: ${newsDataModel?.source?.name ?? ""}",
+            style: TextStyles.poppins10w500()?.copyWith(fontWeight: FontWeight.w600),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ).marginOnly(top: margin_10),
+        ),
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: Text(
+            DateFormat("yyyy-MM-dd HH:mm").format(DateTime.parse(newsDataModel?.publishedAt??DateTime.now().toString())),
+            style: TextStyles.poppins8w500()?.copyWith(fontWeight: FontWeight.w600,color: Colors.grey),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ).marginOnly(top: margin_10),
+        ),
       ],
     );
   }
@@ -63,7 +69,7 @@ tag: newsDataModel?.title??"",
     return Text(
      newsDataModel?.description ?? "",
       style: TextStyles.poppins10w500(),
-      maxLines: 2,
+      maxLines: 2,textAlign: TextAlign.left,
       overflow: TextOverflow.ellipsis,
     ).marginOnly(top: margin_5);
   }

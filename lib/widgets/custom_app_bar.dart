@@ -14,10 +14,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(scrolledUnderElevation: 0.0,backgroundColor: backgroundColor,
-      leadingWidth: width_20,
+      leadingWidth: Get.width*0.145,
+
       leading: leading ??Transform.scale(
 
-          scale: 0.7,
+          scale: 0.65,
           child: InkWell(
             onTap: onBackPress ??
                 () {
@@ -25,12 +26,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
             child: AssetImageWidget(
               imagePath: AppAssets.imagesIcBack,
-              width: width_20,
-              height: width_20,
+              width: width_50,
+              height: width_20,color: Get.theme.secondaryHeaderColor,
             ),
           )),
-      title: Text(title ?? "",style: TextStyles.poppins16w600()?.copyWith(color: Colors.white),),
-      centerTitle: false,
+      title: Text(title ?? "",style: TextStyles.poppins16w600()?.copyWith(color: Get.theme.secondaryHeaderColor),),
+      centerTitle: true,
       actions: actions ?? [],
     );
   }

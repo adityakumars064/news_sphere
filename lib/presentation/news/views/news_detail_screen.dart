@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:news_sphere/constants/export.dart';
 
 class NewsDetailScreen extends GetView<NewsDetailController> {
@@ -31,8 +32,20 @@ class NewsDetailScreen extends GetView<NewsDetailController> {
   }
 
   _sourceText() {
-    return Text("${AppStrings.source.tr}: ${controller.newsDataModel.value?.source?.name??""}",style: TextStyles.poppins10w500()?.copyWith(fontWeight: FontWeight.w600),
-      maxLines: 1,overflow: TextOverflow.ellipsis,).marginOnly(top: margin_10);
+    return Row(
+      children: [
+        Expanded(
+          child: Text("${AppStrings.source.tr}: ${controller.newsDataModel.value?.source?.name??""}",style: TextStyles.poppins10w500()?.copyWith(fontWeight: FontWeight.w600),
+            maxLines: 1,overflow: TextOverflow.ellipsis,).marginOnly(top: margin_10),
+        ),
+        Text(
+          DateFormat("yyyy-MM-dd HH:mm").format(DateTime.parse(controller.newsDataModel.value?.publishedAt??DateTime.now().toString())),
+          style: TextStyles.poppins8w500()?.copyWith(fontWeight: FontWeight.w600,color: Colors.grey),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ).marginOnly(top: margin_10),
+      ],
+    );
   }
 
   _titleText() {
@@ -44,8 +57,7 @@ class NewsDetailScreen extends GetView<NewsDetailController> {
     return Text(
       controller.newsDataModel.value?.content??"",
       style: TextStyles.poppins10w500(),
-      maxLines: 2,
-      overflow: TextOverflow.ellipsis,
+
     ).marginOnly(top: margin_5);
   }
 }
